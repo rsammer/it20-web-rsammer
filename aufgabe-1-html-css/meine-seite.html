@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Persönliche Webseite für das Modul IT-20 Web-Grundlagen mit semantischem HTML5 und modernem CSS.">
+  <title>Rio Sammer – Meine Webseite | IT-20 Web-Grundlagen</title>
+  <style>
+    /* 1. Farb-Variablen */
+    :root {
+      --primary: #005a9c;
+      --primary-hover: #0284c7;
+      --bg: #450a0a;
+      /* Tiefes Rot für die Website */
+      --surface: #5c1119;
+      /* Tiefroter Hintergrund für Karten */
+      --text: #bae6fd;
+      /* Hellblau für den Haupttext */
+      --text-muted: #7dd3fc;
+      /* Helleres Hellblau für Überschriften und Akzente */
+      --border-color: #7f1d24;
+      /* Passender rot-akzentuierter Rand */
+      --shadow: 0 4px 10px rgba(0, 0, 0, 0.4), 0 2px 4px rgba(0, 0, 0, 0.2);
+      --radius: 12px;
+    }
+
+    /* Grundeinstellungen */
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background-color: var(--bg);
+    }
+
+    /* Header & Navigation */
+    header {
+      background: linear-gradient(135deg, #5c1119 0%, #2f050a 100%);
+      color: var(--text);
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      box-shadow: var(--shadow);
+      border-bottom: 3px solid var(--primary);
+    }
+
+    header h1 {
+      margin: 0 0 0.5rem 0;
+      font-size: 2.25rem;
+      letter-spacing: -0.02em;
+      color: #e0f2fe;
+    }
+
+    header .untertitel {
+      margin: 0 0 1.5rem 0;
+      font-size: 1.1rem;
+      color: var(--text-muted);
+    }
+
+    /* Flexbox für Navigation */
+    nav .nav-liste {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      background-color: rgba(186, 230, 253, 0.12);
+      border: 1px solid rgba(186, 230, 253, 0.25);
+      transition: background-color 0.2s ease, transform 0.2s ease, color 0.2s ease;
+      display: inline-block;
+    }
+
+    nav a:hover,
+    nav a:focus-visible {
+      background-color: var(--primary);
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    /* Hauptbereich */
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+    }
+
+    main a {
+      color: #7dd3fc;
+      text-decoration: underline;
+    }
+
+    main a:hover {
+      color: #ffffff;
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    h2 {
+      color: var(--text-muted);
+      font-size: 1.75rem;
+      border-bottom: 3px solid var(--primary);
+      padding-bottom: 0.4rem;
+      margin-top: 0;
+      margin-bottom: 1.25rem;
+    }
+
+    /* Flexbox für Layout-Element: Zwei Karten nebeneinander */
+    .karten-container {
+      display: flex;
+      gap: 1rem;
+    }
+
+    /* 2. Eigene Klasse (.karte) mit Box-Modell: padding, margin und border */
+    .karte {
+      flex: 1;
+      background-color: var(--surface);
+      border: 2px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin: 0.5rem 0;
+      box-shadow: var(--shadow);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .karte:hover {
+      border-color: #38bdf8;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+    }
+
+    .karte h3 {
+      margin-top: 0;
+      color: #e0f2fe;
+      font-size: 1.25rem;
+    }
+
+    /* Bild-Styling */
+    .karte-bild {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: calc(var(--radius) - 4px);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    /* Liste */
+    ul.schwerpunkte-liste {
+      padding-left: 1.25rem;
+      margin: 0.75rem 0;
+    }
+
+    ul.schwerpunkte-liste li {
+      margin-bottom: 0.5rem;
+    }
+
+    ul.schwerpunkte-liste li::marker {
+      color: var(--text-muted);
+    }
+
+    /* Footer */
+    footer {
+      background-color: #240508;
+      color: var(--text-muted);
+      text-align: center;
+      padding: 2rem 1.5rem;
+      margin-top: 4rem;
+      font-size: 0.95rem;
+      border-top: 1px solid var(--primary);
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    /* 3. Media Query für kleine Bildschirme (max-width: 700px) */
+    @media (max-width: 700px) {
+      header h1 {
+        font-size: 1.75rem;
+      }
+
+      nav .nav-liste {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .karten-container {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header mit h1 Titel -->
+  <header>
+    <h1>Rio Sammer – Athlet &amp; Web-Entwickler</h1>
+    <p class="untertitel">Ausdauersportler, Fitness-Enthusiast &amp; Schüler im Modul IT-20</p>
+
+    <!-- Nav mit mindestens 2 Links (Sprungmarken) -->
+    <nav aria-label="Hauptnavigation">
+      <ul class="nav-liste">
+        <li><a href="#ueber-mich">Über mich</a></li>
+        <li><a href="#hobbys">Sport &amp; Disziplin</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main mit mindestens 2 section, jeweils mit h2-Überschrift -->
+  <main>
+
+    <!-- Erste Section: Über mich mit Flexbox-Karten, Bild und Liste -->
+    <section id="ueber-mich">
+      <h2>Über mich</h2>
+      <div class="karten-container">
+        <article class="karte">
+          <!-- Bild mit sinnvollem alt-Text -->
+          <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=800&q=80"
+            alt="Sprinter bereit zum Start auf einer Tartanbahn bei vollem Fokus" class="karte-bild">
+          <h3>100% Disziplin &amp; Bewegung</h3>
+          <p>
+            Mein Tag startet um 5:30 Uhr mit einem zügigen 10-Kilometer-Lauf und
+            intensivem Calisthenics-Training. Wenn ich am Schreibtisch für das Modul
+            <strong>IT-20 Web-Grundlagen</strong> programmiere, bringe ich dieselbe
+            eiserne Arbeitsmoral und maximale Energie ein wie in jeden Wettkampf.
+          </p>
+        </article>
+
+        <article class="karte">
+          <h3>Meine Prinzipien &amp; Ziele</h3>
+          <p>Stillstand existiert in meiner Welt nicht – ob auf dem Trail oder im Code:</p>
+          <!-- Liste (ul/li) mit mindestens 3 Punkten -->
+          <ul class="schwerpunkte-liste">
+            <li>Täglich mindestens 2 Stunden schweißtreibender Sport (Laufen, Kraft, Outdoor)</li>
+            <li>Messerscharfer Fokus: sauberer, semantischer HTML5- und responsiver CSS-Code</li>
+            <li>Kontinuierliche Steigerung der Bestzeiten und Programmierfähigkeiten</li>
+            <li>Eiserner Wille: Durchziehen bei jedem Wetter und bei jedem Projekt</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- Zweite Section: Hobbys -->
+    <section id="hobbys">
+      <h2>Sport, Fitness &amp; Eiserne Disziplin</h2>
+      <div class="karten-container">
+        <article class="karte">
+          <h3>Outdoor-Action &amp; Kraftsport</h3>
+          <p>
+            Ob Bergläufe bei Regen, schwere Kniebeugen im Gym oder rasante Mountainbike-Trails
+            durch die Natur – mein Körper braucht Höchstleistung. Sinnlos auf dem Sofa
+            herumlungern gibt es bei mir schlichtweg nicht.
+          </p>
+        </article>
+        <article class="karte">
+          <h3>Videospiele? Nicht mal für eine Million Euro!</h3>
+          <p>
+            Wer seine wertvolle Lebenszeit mit Controllern vor der Konsole totschlägt, verpasst
+            das wahre Leben. Ich habe in meinem ganzen Leben noch nie ein einziges Videospiel
+            angefasst – und würde das nicht mal für eine Million Euro tun! Echte Athleten
+            jagen persönliche Bestzeiten und Schweißperlen, keine virtuellen Pixel-Punkte.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Dritte Section: Kontakt -->
+    <section id="kontakt">
+      <h2>Kontakt &amp; Trainingspartner</h2>
+      <article class="karte">
+        <h3>Lass uns trainieren oder vernetzen</h3>
+        <p>
+          Lust auf eine morgendliche 15-Kilometer-Runde oder Fachsimpeln über sauberen
+          Web-Code? Du erreichst mich jederzeit über GitHub (solange ich nicht gerade im Workout bin):
+        </p>
+        <ul class="schwerpunkte-liste">
+          <li><strong>GitHub:</strong> <a href="https://github.com/rsammer" target="_blank"
+              rel="noopener">github.com/rsammer</a></li>
+          <li><strong>Fach:</strong> Modul IT-20 Web-Grundlagen</li>
+          <li><strong>Status:</strong> Ausdauer-Athlet &amp; zielstrebiger Web-Entwickler</li>
+        </ul>
+      </article>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Rio Sammer &bull; Modul IT-20 Web-Grundlagen &bull; Alle Rechte vorbehalten</p>
+  </footer>
+
+</body>
+
+</html>
